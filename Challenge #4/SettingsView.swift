@@ -36,6 +36,7 @@ struct SettingsView: View {
                 
                 Spacer()
                 Spacer()
+                Spacer()
                 
                 Button {
                     // Handle sign in logic
