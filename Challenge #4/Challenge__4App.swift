@@ -37,7 +37,7 @@ struct Challenge__4App: App {
         case "dark":
             return .dark
         default:
-            return nil // SYSTEM THEME
+            return nil // Use system theme
         }
     }
 }

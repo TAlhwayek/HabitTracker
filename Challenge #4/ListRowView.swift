@@ -17,23 +17,22 @@ struct ListRowView: View {
             HStack {
                 Text(toDo.title)
                     .font(.title2.bold())
-                    .strikethrough(isCompleted)
             }
             
             HStack {
                 Text(toDo.description)
                     .font(.caption)
-                    .strikethrough(isCompleted)
                 
                 Spacer()
                 
                 Text(toDo.priority)
                     .font(.caption)
                     .priorityStyle(for: toDo)
-                    .strikethrough(isCompleted)
+                    
             }
         }
         .contentShape(Rectangle())
+        .strikethrough(isCompleted)
         .onTapGesture {
             withAnimation {
                 isCompleted.toggle()

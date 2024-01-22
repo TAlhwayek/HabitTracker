@@ -21,6 +21,7 @@ struct SettingsView: View {
                         UserDefaults.standard.set(showQuotes, forKey: "ShowQuotes")
                     }
                 
+                // Theme section
                 HStack {
                     Text("Select Theme")
                     
@@ -38,6 +39,7 @@ struct SettingsView: View {
                 Spacer()
                 Spacer()
                 
+                // SUPABASE LOGIN SECTION
                 Button {
                     // Handle sign in logic
                 } label: {
