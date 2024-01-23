@@ -14,16 +14,16 @@ import SwiftUI
 //              Also allow edits in detailview?
 //              Make it rain confetti once done
 // Check challenge webpage
-// Check theme? Maybe allow user to force dark/light mode or use system
+// Check theme? Maybe allow user to force dark/light mode or use system -DONE
 //              Maybe extra themes?
 // DetailView when clicked
 // Maybe tab bar that switches between habits and to-do list? - DONE
 //              That means I have to remove priority from habits - DONE
-//              And maybe some other fixes
 // Maybe sort todolist by priority
-// Maybe either strikethrough to-dos, or put them in another section that shows completed today
+// Maybe either strikethrough to-dos -DONE
+//              or put them in another section that shows completed today
 //              Then reset daily
-
+// Add supabase for cloudsync??
 
 struct HabitListView: View {
     @State private var habits = Habits()

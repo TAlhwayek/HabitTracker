@@ -12,4 +12,5 @@ struct ToDo: Identifiable, Codable {
     var title: String
     var description: String
     var priority: String
+    var wasAdded: Bool
 }

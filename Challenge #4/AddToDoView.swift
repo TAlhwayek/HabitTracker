@@ -9,9 +9,11 @@ import SwiftUI
 
 struct AddToDoView: View {
     @Environment(\.dismiss) var dismiss
+    
     @State private var title = ""
     @State private var description = ""
     @State private var priority = "Low"
+    @State private var wasAdded = false
     
     let priorities = ["Low", "Medium", "High"]
     
@@ -34,7 +36,7 @@ struct AddToDoView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Add") {
-                        let newToDo = ToDo(title: title, description: description, priority: priority)
+                        let newToDo = ToDo(title: title, description: description, priority: priority, wasAdded: true)
                         toDos.toDosArray.append(newToDo)
                         dismiss()
                     }
