@@ -48,12 +48,12 @@ struct ListRowView: View {
                 }
             }
             .navigationDestination(isPresented: $isActive) {
-                          ExpandToDoView(toDo: toDo)
-                      }
+                ExpandToDoView(toDo: toDo)
+            }
         }
     }
 }
 
 #Preview {
-    ListRowView(toDo: ToDo(title: "TEST", description: "TEST DESC", priority: "Low"))
+    ListRowView(toDo: ToDo(title: "Go to the gym", description: "Stay motivated", priority: "High"))
 }

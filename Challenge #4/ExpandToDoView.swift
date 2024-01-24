@@ -10,39 +10,38 @@ import SwiftUI
 struct ExpandToDoView: View {
     @Environment(\.dismiss) var dismiss
     
-    var toDo: ToDo
+    @State var toDo: ToDo
+    
     let priorities = ["Low", "Medium", "High"]
     
     var body: some View {
-        @State var title: String = toDo.title
-        @State var description: String = toDo.description
-        @State var priority: String = toDo.priority
-
         
         NavigationStack {
             List {
-                HStack {
-                    Text("Title:")
-                    Spacer()
-                    Text(toDo.title)
-                }
-                
-                HStack {
-                    Text("Description:")
-                    Spacer()
-                    Text(toDo.description)
-                }
-                         
-                HStack {
-                    Text("Priority:")
-                    Spacer()
-                    Text(toDo.priority)
-                        .priorityStyle(for: toDo)
+                TextField("Title", text: $toDo.title)
+                TextField("Description", text: $toDo.description)
+                Picker("Priority", selection: $toDo.priority) {
+                    ForEach(priorities, id: \.self) {
+                        Text($0)
+                    }
                 }
             }
-//            .navigationTitle("View To-do")
-//            .navigationBarTitleDisplayMode(.inline)
-
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Save") {
+                        // Somehow update data here
+                        dismiss()
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                    .foregroundStyle(.red)
+                }
+            }
+            .navigationBarBackButtonHidden()
         }
     }
 }
@@ -50,3 +49,27 @@ struct ExpandToDoView: View {
 #Preview {
     ExpandToDoView(toDo: ToDo(title: "Test", description: "Test desc", priority: "Low"))
 }
+
+//        NavigationStack {
+//            List {
+//                HStack {
+//                    Text("Title:")
+//                    Spacer()
+//                    Text(toDo.title)
+//                }
+//
+//                HStack {
+//                    Text("Description:")
+//                    Spacer()
+//                    Text(toDo.description)
+//                }
+//
+//                HStack {
+//                    Text("Priority:")
+//                    Spacer()
+//                    Text(toDo.priority)
+//                        .priorityStyle(for: toDo)
+//                }
+//            }
+//            .navigationTitle("View To-do")
+//            .navigationBarTitleDisplayMode(.inline)
