@@ -10,12 +10,10 @@ import SwiftUI
 struct ExpandToDoView: View {
     @Environment(\.dismiss) var dismiss
     
-    @State var toDo: ToDo
-    
+    @Binding var toDo: ToDo // Use Binding to pass data between views
     let priorities = ["Low", "Medium", "High"]
     
     var body: some View {
-        
         NavigationStack {
             List {
                 TextField("Title", text: $toDo.title)
@@ -29,7 +27,7 @@ struct ExpandToDoView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        // Somehow update data here
+                        // No need to update data here, it's bound to the original ToDo
                         dismiss()
                     }
                 }
@@ -46,8 +44,9 @@ struct ExpandToDoView: View {
     }
 }
 
+
 #Preview {
-    ExpandToDoView(toDo: ToDo(title: "Test", description: "Test desc", priority: "Low"))
+    ExpandToDoView(toDo: .constant(ToDo(title: "Test", description: "Test desc", priority: "Low")))
 }
 
 //        NavigationStack {

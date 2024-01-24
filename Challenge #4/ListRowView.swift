@@ -15,7 +15,7 @@ struct ListRowView: View {
     @State private var isActive: Bool = false
     @State private var toDos = ToDos()
     
-    let toDo: ToDo
+    @State var toDo: ToDo
     
     var body: some View {
         NavigationStack {
@@ -48,7 +48,7 @@ struct ListRowView: View {
                 }
             }
             .navigationDestination(isPresented: $isActive) {
-                ExpandToDoView(toDo: toDo)
+                ExpandToDoView(toDo: $toDo)
             }
         }
     }
