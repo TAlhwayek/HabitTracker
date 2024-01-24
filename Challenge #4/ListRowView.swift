@@ -18,38 +18,38 @@ struct ListRowView: View {
     let toDo: ToDo
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text(toDo.title)
-                    .font(.title2.bold())
-            }
-            
-            HStack {
-                Text(toDo.description)
-                    .font(.caption)
+        NavigationStack {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text(toDo.title)
+                        .font(.title2.bold())
+                }
                 
-                Spacer()
-                
-                Text(toDo.priority)
-                    .font(.caption)
-                    .priorityStyle(for: toDo)
-                
+                HStack {
+                    Text(toDo.description)
+                        .font(.caption)
+                    
+                    Spacer()
+                    
+                    Text(toDo.priority)
+                        .font(.caption)
+                        .priorityStyle(for: toDo)
+                    
+                }
             }
-        }
-        .contentShape(Rectangle())
-        .strikethrough(isCompleted)
-        .onTapGesture {
-            isActive.toggle()
-        }
-        .onLongPressGesture {
-            withAnimation {
-                isCompleted.toggle()
+            .contentShape(Rectangle())
+            .strikethrough(isCompleted)
+            .onTapGesture {
+                isActive.toggle()
             }
-        }
-        .background {
-            NavigationLink(destination: ExpandToDoView(toDo: toDo), isActive: $isActive) {
-                EmptyView()  // Use EmptyView as a placeholder
+            .onLongPressGesture {
+                withAnimation {
+                    isCompleted.toggle()
+                }
             }
+            .navigationDestination(isPresented: $isActive) {
+                          ExpandToDoView(toDo: toDo)
+                      }
         }
     }
 }
