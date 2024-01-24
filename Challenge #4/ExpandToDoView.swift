@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExpandToDoView: View {
     @Environment(\.dismiss) var dismiss
-    
+    @State private var toDos = ToDos()
     @Binding var toDo: ToDo
     @State private var initialToDo: ToDo
     
@@ -34,6 +34,11 @@ struct ExpandToDoView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
+                        // Updates class which updates user defaults
+                        if let index = toDos.toDosArray.firstIndex(where: { $0.id == toDo.id }) {
+                            toDos.toDosArray[index] = toDo
+                        }
+                        
                         dismiss()
                     }
                 }
