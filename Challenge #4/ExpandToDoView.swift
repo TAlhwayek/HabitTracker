@@ -17,7 +17,7 @@ struct ExpandToDoView: View {
         @State var title: String = toDo.title
         @State var description: String = toDo.description
         @State var priority: String = toDo.priority
-        @State var wasAdded: Bool = toDo.wasAdded
+
         
         NavigationStack {
             List {
@@ -48,5 +48,5 @@ struct ExpandToDoView: View {
 }
 
 #Preview {
-    ExpandToDoView(toDo: ToDo(title: "Test", description: "Test desc", priority: "Low", wasAdded: true))
+    ExpandToDoView(toDo: ToDo(title: "Test", description: "Test desc", priority: "Low"))
 }

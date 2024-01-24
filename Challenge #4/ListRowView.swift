@@ -55,5 +55,5 @@ struct ListRowView: View {
 }
 
 #Preview {
-    ListRowView(toDo: ToDo(title: "TEST", description: "TEST DESC", priority: "Low", wasAdded: true))
+    ListRowView(toDo: ToDo(title: "TEST", description: "TEST DESC", priority: "Low"))
 }

@@ -13,7 +13,6 @@ struct AddToDoView: View {
     @State private var title = ""
     @State private var description = ""
     @State private var priority = "Low"
-    @State private var wasAdded = false
     
     let priorities = ["Low", "Medium", "High"]
     
@@ -36,7 +35,7 @@ struct AddToDoView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Add") {
-                        let newToDo = ToDo(title: title, description: description, priority: priority, wasAdded: true)
+                        let newToDo = ToDo(title: title, description: description, priority: priority)
                         toDos.toDosArray.append(newToDo)
                         dismiss()
                     }

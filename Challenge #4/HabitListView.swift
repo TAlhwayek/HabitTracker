@@ -24,6 +24,7 @@ import SwiftUI
 //              or put them in another section that shows completed today
 //              Then reset daily
 // Add supabase for cloudsync??
+// Make detail view editable... somehow
 
 struct HabitListView: View {
     @State private var habits = Habits()
