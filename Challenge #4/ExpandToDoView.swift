@@ -10,8 +10,15 @@ import SwiftUI
 struct ExpandToDoView: View {
     @Environment(\.dismiss) var dismiss
     
-    @Binding var toDo: ToDo // Use Binding to pass data between views
+    @Binding var toDo: ToDo
+    @State private var initialToDo: ToDo
+    
     let priorities = ["Low", "Medium", "High"]
+    
+    init(toDo: Binding<ToDo>) {
+        _toDo = toDo
+        _initialToDo = State(initialValue: toDo.wrappedValue)
+    }
     
     var body: some View {
         NavigationStack {
@@ -27,13 +34,14 @@ struct ExpandToDoView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        // No need to update data here, it's bound to the original ToDo
                         dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Cancel") {
+                        // Reset edited values
+                        toDo = initialToDo
                         dismiss()
                     }
                     .foregroundStyle(.red)
@@ -41,8 +49,13 @@ struct ExpandToDoView: View {
             }
             .navigationBarBackButtonHidden()
         }
+        .onAppear {
+            // Store initial ToDo when the view appears
+            initialToDo = toDo
+        }
     }
 }
+
 
 
 #Preview {
