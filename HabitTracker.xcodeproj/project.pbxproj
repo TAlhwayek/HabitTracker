@@ -29,7 +29,7 @@
 		9BFB57C42B5DAC9E0067DCBD /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 9BFB57C32B5DAC9E0067DCBD /* Storage */; };
 		9BFB57C62B5DAC9E0067DCBD /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9BFB57C52B5DAC9E0067DCBD /* Supabase */; };
 		9BFB57C82B5E22390067DCBD /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57C72B5E22390067DCBD /* ListRowView.swift */; };
-		9BFB57CA2B607CFA0067DCBD /* ExpandToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57C92B607CFA0067DCBD /* ExpandToDoView.swift */; };
+		9BFB57CA2B607CFA0067DCBD /* EditToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57C92B607CFA0067DCBD /* EditToDoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +50,7 @@
 		9BFB57B42B5C60B80067DCBD /* ToDos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDos.swift; sourceTree = "<group>"; };
 		9BFB57B62B5C61F90067DCBD /* AddToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoView.swift; sourceTree = "<group>"; };
 		9BFB57C72B5E22390067DCBD /* ListRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
-		9BFB57C92B607CFA0067DCBD /* ExpandToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExpandToDoView.swift; path = "Challenge #4/ExpandToDoView.swift"; sourceTree = "<group>"; };
+		9BFB57C92B607CFA0067DCBD /* EditToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditToDoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,6 @@
 		9BFB57882B5B8D600067DCBD = {
 			isa = PBXGroup;
 			children = (
-				9BFB57C92B607CFA0067DCBD /* ExpandToDoView.swift */,
 				9BFB57932B5B8D600067DCBD /* Challenge #4 */,
 				9BFB57922B5B8D600067DCBD /* Products */,
 			);
@@ -97,6 +96,7 @@
 				9BFB57B22B5C609D0067DCBD /* ToDo.swift */,
 				9BFB57B42B5C60B80067DCBD /* ToDos.swift */,
 				9BFB57B02B5C59370067DCBD /* ToDoListView.swift */,
+				9BFB57C92B607CFA0067DCBD /* EditToDoView.swift */,
 				9BFB57A22B5B8DA60067DCBD /* Habit.swift */,
 				9BFB57A42B5B8EA00067DCBD /* Habits.swift */,
 				9BFB57A62B5B97C80067DCBD /* AddHabitView.swift */,
@@ -209,7 +209,7 @@
 				9BFB57B12B5C59370067DCBD /* ToDoListView.swift in Sources */,
 				9BFB57952B5B8D600067DCBD /* Challenge__4App.swift in Sources */,
 				9BFB57A72B5B97C80067DCBD /* AddHabitView.swift in Sources */,
-				9BFB57CA2B607CFA0067DCBD /* ExpandToDoView.swift in Sources */,
+				9BFB57CA2B607CFA0067DCBD /* EditToDoView.swift in Sources */,
 				9BFB57A92B5B9FD70067DCBD /* PriorityStyle.swift in Sources */,
 				9BFB57AF2B5BAA4C0067DCBD /* Tabs.swift in Sources */,
 				9BFB57AB2B5BA12C0067DCBD /* MotivationalQuotes.swift in Sources */,

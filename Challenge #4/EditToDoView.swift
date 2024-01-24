@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct ExpandToDoView: View {
+struct EditToDoView: View {
+    @Binding var toDo: ToDo
     @Environment(\.dismiss) var dismiss
     @State private var toDos = ToDos()
-    @Binding var toDo: ToDo
     @State private var initialToDo: ToDo
     
     let priorities = ["Low", "Medium", "High"]
@@ -64,7 +64,7 @@ struct ExpandToDoView: View {
 
 
 #Preview {
-    ExpandToDoView(toDo: .constant(ToDo(title: "Test", description: "Test desc", priority: "Low")))
+    EditToDoView(toDo: .constant(ToDo(title: "Test", description: "Test desc", priority: "Low")))
 }
 
 //        NavigationStack {

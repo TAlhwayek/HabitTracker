@@ -12,6 +12,7 @@ import SwiftUI
 struct ListRowView: View {
     // Used for strikethrough
     @State private var isCompleted: Bool = false
+    // Used to show edit view
     @State private var isActive: Bool = false
     @State private var toDos = ToDos()
     
@@ -48,7 +49,7 @@ struct ListRowView: View {
                 }
             }
             .navigationDestination(isPresented: $isActive) {
-                ExpandToDoView(toDo: $toDo)
+                EditToDoView(toDo: $toDo)
             }
         }
     }
