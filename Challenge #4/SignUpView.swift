@@ -8,18 +8,33 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @State private var emailAddress: String = ""
+    @State private var userEmail: String = ""
+    @State private var userPassword: String = ""
     
     var body: some View {
-        TextField("Email Address", text: $emailAddress)
-            .frame(maxWidth: 250)
-            .padding()
-            .overlay(
-               RoundedRectangle(cornerRadius: 10)
-                  .stroke(.blue, lineWidth: 2)
-             )
-//            .foregroundStyle(.white)
         
+        Spacer()
+        VStack {
+            Text("Sign Up")
+            TextField("Email Address", text: $userEmail)
+                .frame(maxWidth: 250)
+                .padding(10)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.blue, lineWidth: 1)
+                }
+            
+            SecureField("Password", text: $userPassword)
+                .frame(width: 250)
+                .padding(10)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.gray, lineWidth: 1)
+                }
+        }
+        
+        Spacer()
+        Spacer()
     }
 }
 

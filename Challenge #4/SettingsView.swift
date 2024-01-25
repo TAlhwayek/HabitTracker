@@ -53,7 +53,7 @@ struct SettingsView: View {
                 .padding(.horizontal, 75)
                 .padding(.vertical, 10)
                 Button {
-                    // Handle sign up logic
+                    NavigationLink("Sign Up", destination: SignUpView)
                 } label: {
                     Text("Sign up")
                         .frame(maxWidth: .infinity)
