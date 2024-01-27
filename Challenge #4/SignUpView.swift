@@ -5,7 +5,11 @@
 //  Created by Tony Alhwayek on 1/25/24.
 //
 
+import Supabase
 import SwiftUI
+
+let supabase = SupabaseClient(supabaseURL: URL(string: Secrets.url)!, supabaseKey: Secrets.key)
+let auth = supabase.auth
 
 struct SignUpView: View {
     @State private var userEmail: String = ""
@@ -45,7 +49,10 @@ struct SignUpView: View {
                 .padding(.bottom, 20)
             
             Button {
-                // Handle sign up logic here
+                try await supabase.auth.signUp(
+                  email: userEmail,
+                  password: userPassword
+                )
             } label: {
                 Text("Sign Up")
             }
