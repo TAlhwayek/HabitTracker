@@ -53,19 +53,22 @@ struct SettingsView: View {
                 .padding(.horizontal, 75)
                 .padding(.vertical, 10)
                 
-                NavigationLink("Sign Up", destination: SignUpView())
-                //                    Button {
-                //                    } label: {
-                
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .foregroundStyle(Color(uiColor: .label))
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 50)
-                            .stroke((.blue), lineWidth: 1)
-                    }
-                //                    }
-                    .padding(.horizontal, 75)
+                // Sign up button
+                NavigationLink {
+                    SignUpView()
+                } label: {
+                    Text("Sign Up")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .foregroundStyle(Color(uiColor: .label))
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 50)
+                                .stroke((.blue), lineWidth: 1)
+                        }
+                }
+                .contentShape(RoundedRectangle(cornerRadius: 50))
+                .padding(.horizontal, 75)
+                    
                 
                 
                 Spacer()

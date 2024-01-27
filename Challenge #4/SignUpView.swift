@@ -16,16 +16,25 @@ struct SignUpView: View {
         Spacer()
         VStack {
             Text("Sign Up")
+                .font(.title.bold())
+            
+            Rectangle()
+                .frame(height: 2)
+                .padding(.horizontal, 50)
+                .foregroundStyle(.clear)
+                .padding(.vertical, 10)
+            
             TextField("Email Address", text: $userEmail)
-                .frame(maxWidth: 250)
+                .frame(maxWidth: 275)
                 .padding(10)
                 .overlay {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(.blue, lineWidth: 1)
                 }
+                .keyboardType(.emailAddress)
             
             SecureField("Password", text: $userPassword)
-                .frame(width: 250)
+                .frame(width: 275)
                 .padding(10)
                 .overlay {
                     RoundedRectangle(cornerRadius: 10)
