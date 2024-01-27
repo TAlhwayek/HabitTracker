@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B095C9D2B624D28005BA929 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B095C9C2B624D28005BA929 /* SignUpView.swift */; };
+		9B1F839D2B64B91900B31FAB /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F839C2B64B91900B31FAB /* SignInView.swift */; };
 		9BFB57952B5B8D600067DCBD /* Challenge__4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57942B5B8D600067DCBD /* Challenge__4App.swift */; };
 		9BFB57972B5B8D600067DCBD /* HabitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57962B5B8D600067DCBD /* HabitListView.swift */; };
 		9BFB57992B5B8D620067DCBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFB57982B5B8D620067DCBD /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		9B095C9C2B624D28005BA929 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		9B1F839C2B64B91900B31FAB /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		9BFB57912B5B8D600067DCBD /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFB57942B5B8D600067DCBD /* Challenge__4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge__4App.swift; sourceTree = "<group>"; };
 		9BFB57962B5B8D600067DCBD /* HabitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				9B095C9C2B624D28005BA929 /* SignUpView.swift */,
+				9B1F839C2B64B91900B31FAB /* SignInView.swift */,
 				9BFB57942B5B8D600067DCBD /* Challenge__4App.swift */,
 				9BFB57AE2B5BAA4C0067DCBD /* Tabs.swift */,
 				9BFB57C72B5E22390067DCBD /* ListRowView.swift */,
@@ -208,6 +211,7 @@
 				9BFB57B72B5C61F90067DCBD /* AddToDoView.swift in Sources */,
 				9BFB57972B5B8D600067DCBD /* HabitListView.swift in Sources */,
 				9BFB57B32B5C609D0067DCBD /* ToDo.swift in Sources */,
+				9B1F839D2B64B91900B31FAB /* SignInView.swift in Sources */,
 				9BFB57A52B5B8EA00067DCBD /* Habits.swift in Sources */,
 				9BFB57B12B5C59370067DCBD /* ToDoListView.swift in Sources */,
 				9BFB57952B5B8D600067DCBD /* Challenge__4App.swift in Sources */,

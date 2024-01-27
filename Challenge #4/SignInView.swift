@@ -1,13 +1,13 @@
 //
-//  SignUpView.swift
+//  SignInView.swift
 //  HabitTracker
 //
-//  Created by Tony Alhwayek on 1/25/24.
+//  Created by Tony Alhwayek on 1/26/24.
 //
 
 import SwiftUI
 
-struct SignUpView: View {
+struct SignInView: View {
     @State private var userEmail: String = ""
     @State private var userPassword: String = ""
     
@@ -15,7 +15,7 @@ struct SignUpView: View {
         
         Spacer()
         VStack {
-            Text("Sign Up")
+            Text("Sign In")
                 .font(.title.bold())
             
             // Instead of a spacer
@@ -47,7 +47,7 @@ struct SignUpView: View {
             Button {
                 // Handle sign up logic here
             } label: {
-                Text("Sign Up")
+                Text("Sign In")
             }
             .foregroundStyle(Color(uiColor: .label))
             .padding(10)
@@ -65,5 +65,5 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView()
+    SignInView()
 }

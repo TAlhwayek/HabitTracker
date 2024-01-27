@@ -40,8 +40,8 @@ struct SettingsView: View {
                 Spacer()
                 
                 // SUPABASE LOGIN SECTION
-                Button {
-                    // Handle sign in logic
+                NavigationLink {
+                    SignInView()
                 } label: {
                     Text("Sign in")
                         .frame(maxWidth: .infinity)
