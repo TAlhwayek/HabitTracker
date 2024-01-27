@@ -49,10 +49,10 @@ struct SignUpView: View {
                 .padding(.bottom, 20)
             
             Button {
-                try await supabase.auth.signUp(
-                  email: userEmail,
-                  password: userPassword
-                )
+//                try await supabase.auth.signUp(
+//                  email: userEmail,
+//                  password: userPassword
+//                )
             } label: {
                 Text("Sign Up")
             }
