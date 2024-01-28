@@ -9,20 +9,20 @@ import ConfettiSwiftUI
 import SwiftUI
 
 // TODO:
-// Save settings and load (UserDefaults) - DONE
-// Set up 'times completed'
+
+// Set up 'times completed' - DONE
 //              Maybe add done button on detailview
 //              Also allow edits in detailview?
 //              Make it rain confetti once done
 // Check challenge webpage
-
 // Maybe extra themes?
 
 
 // Maybe sort todolist by priority
-
 //              or put them in another section that shows completed today
 //              Then reset daily
+
+// Save settings and load (UserDefaults) - DONE
 // DetailView when clicked - DONE
 // Make detail view editable... somehow - DONE
 // Maybe tab bar that switches between habits and to-do list? - DONE
