@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showQuotes: Bool = UserDefaults.standard.bool(forKey: "ShowQuotes")
+    @State private var showConfetti: Bool = UserDefaults.standard.bool(forKey: "ShowConfetti")
     @AppStorage("selectedTheme") var selectedTheme: String = ""
     
     var body: some View {
@@ -19,6 +20,12 @@ struct SettingsView: View {
                     .padding()
                     .onChange(of: showQuotes) {
                         UserDefaults.standard.set(showQuotes, forKey: "ShowQuotes")
+                    }
+                
+                Toggle("Show confetti on habit completion", isOn: $showConfetti)
+                    .padding()
+                    .onChange(of: showConfetti) {
+                        UserDefaults.standard.set(showConfetti, forKey: "ShowConfetti")
                     }
                 
                 // Theme section

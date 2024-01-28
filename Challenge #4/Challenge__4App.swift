@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-// Registering user defaults for the showQuotes toggle to default to on
+// Registering user defaults to default to on
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         UserDefaults.standard.register(defaults: ["ShowQuotes": true])
+        UserDefaults.standard.register(defaults: ["ShowConfetti": true])
         return true
     }
 }

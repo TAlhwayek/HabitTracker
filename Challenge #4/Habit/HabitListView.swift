@@ -34,6 +34,7 @@ struct HabitListView: View {
     @State private var habits = Habits()
     @State private var showSettingsSheet = false
     @AppStorage("ShowQuotes") private var showQuotes: Bool = true
+    @AppStorage("ShowConfetti") private var showConfetti: Bool = true
     @State private var confettiCounter = 0
     
     var body: some View {
@@ -60,7 +61,9 @@ struct HabitListView: View {
                         .contentShape(Rectangle())
                         .onLongPressGesture{
                             habits.habitsArray[index].timesCompleted += 1
-                            confettiCounter += 1
+                            if showConfetti {
+                                confettiCounter += 1
+                            }
                         }
                     }
                     .onDelete(perform: removeItems)
