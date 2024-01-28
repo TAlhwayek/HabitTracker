@@ -67,6 +67,7 @@ struct EditToDoView: View {
     EditToDoView(toDo: .constant(ToDo(title: "Test", description: "Test desc", priority: "Low")))
 }
 
+// Forgot why this is here lol
 //        NavigationStack {
 //            List {
 //                HStack {
