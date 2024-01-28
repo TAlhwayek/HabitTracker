@@ -62,6 +62,7 @@ struct HabitListView: View {
                 .navigationTitle("Habit Tracker")
                 .navigationBarTitleDisplayMode(.inline)
                 
+                // Quotes at the bottom
                 if showQuotes {
                     Text(motivationalQuotes[19])
                         .frame(height: 80, alignment: .center)
@@ -80,9 +81,6 @@ struct HabitListView: View {
                 }
                 // Settings button
                 ToolbarItem(placement: .topBarLeading) {
-                    //                        NavigationLink(destination: SettingsView()) {
-                    //                            Image(systemName: "gearshape")
-                    //                        }
                     Button(action: {
                         showSettingsSheet.toggle()
                     }) {

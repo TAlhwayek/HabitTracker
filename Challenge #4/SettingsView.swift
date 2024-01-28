@@ -36,10 +36,6 @@ struct SettingsView: View {
                 .padding(.horizontal)
                 
                 Spacer()
-                Spacer()
-                Spacer()
-                
-                Spacer()
             }
             
         }
