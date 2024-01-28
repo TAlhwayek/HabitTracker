@@ -14,7 +14,7 @@ struct HelpView: View {
                 Text("Habit View:")
                     .font(.title3.bold())
                     
-                Text("- Hold the habit to mark it as completed")
+                Text("- Hold an to mark it as completed")
             }
             .padding()
             
@@ -28,7 +28,7 @@ struct HelpView: View {
                 Text("To-do:")
                     .font(.title3.bold())
                 Text("- Tap on a to-do item to edit it")
-                Text("- Hold a to-do item to mark as completed")
+                Text("- Hold an item to mark it as completed")
             }
             .padding()
         }
