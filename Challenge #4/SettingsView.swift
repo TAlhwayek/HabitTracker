@@ -51,12 +51,7 @@ struct SettingsView: View {
                         .contentShape(RoundedRectangle(cornerRadius: 50))
                         .padding(.horizontal, 125)
                 }
-                
-                
-                
-                
             }
-            
         }
         // Temp fix for sheet not dynamically updating when theme is changed
         .onChange(of: selectedTheme) {

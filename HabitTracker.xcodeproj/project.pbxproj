@@ -80,6 +80,7 @@
 				9BFB57B42B5C60B80067DCBD /* ToDos.swift */,
 				9BFB57B02B5C59370067DCBD /* ToDoListView.swift */,
 				9BFB57C92B607CFA0067DCBD /* EditToDoView.swift */,
+				9BFB57C72B5E22390067DCBD /* ListRowView.swift */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -125,7 +126,6 @@
 			children = (
 				9BFB57942B5B8D600067DCBD /* Challenge__4App.swift */,
 				9BFB57AE2B5BAA4C0067DCBD /* Tabs.swift */,
-				9BFB57C72B5E22390067DCBD /* ListRowView.swift */,
 				9BFB57AC2B5BA2940067DCBD /* SettingsView.swift */,
 				9B1F83AA2B66EF3400B31FAB /* HelpView.swift */,
 				9B1F83A02B64C16700B31FAB /* ToDo */,

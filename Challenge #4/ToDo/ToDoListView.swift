@@ -31,6 +31,7 @@ struct ToDoListView: View {
                         Image(systemName: "plus")
                     }
                 }
+                
                 // Settings button
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: {

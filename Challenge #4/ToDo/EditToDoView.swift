@@ -34,7 +34,7 @@ struct EditToDoView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        // Updates class which updates user defaults
+                        // Updates class, which updates user defaults
                         if let index = toDos.toDosArray.firstIndex(where: { $0.id == toDo.id }) {
                             toDos.toDosArray[index] = toDo
                         }
