@@ -43,6 +43,26 @@ struct SettingsView: View {
                             }
                         }
                     }
+                    
+                    Section("FEEDBACK") {
+                        HStack {
+                            Text("Suggestions or feedback?")
+                            Spacer()
+                            Button() {
+                                // Pre-filled data
+                                let mailToString = "tony@alhwayek.com" // Replace with your email address
+                                let subject = "App Feedback"
+                                let mailURL = "mailto:\(mailToString)?subject=\(subject)"
+                                
+                                // Open mail app
+                                if let url = URL(string: mailURL) {
+                                    UIApplication.shared.open(url)
+                                }
+                            } label: {
+                                Text("Email me")
+                            }
+                        }
+                    }
                 }
                 
                 Spacer()
