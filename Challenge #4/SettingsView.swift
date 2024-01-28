@@ -39,38 +39,6 @@ struct SettingsView: View {
                 Spacer()
                 Spacer()
                 
-                // SUPABASE LOGIN SECTION
-                NavigationLink {
-                    SignInView()
-                } label: {
-                    Text("Sign in")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(.blue)
-                        .cornerRadius(50)
-                        .foregroundStyle(Color(uiColor: .label))
-                }
-                .padding(.horizontal, 75)
-                .padding(.vertical, 10)
-                
-                // Sign up button
-                NavigationLink {
-                    SignUpView()
-                } label: {
-                    Text("Sign Up")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .foregroundStyle(Color(uiColor: .label))
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 50)
-                                .stroke((.blue), lineWidth: 1)
-                        }
-                }
-                .contentShape(RoundedRectangle(cornerRadius: 50))
-                .padding(.horizontal, 75)
-                    
-                
-                
                 Spacer()
             }
             
