@@ -44,6 +44,8 @@ struct ListRowView: View {
                 isActive.toggle()
             }
             .onLongPressGesture {
+                // Modify the class entry
+                // This saves the strikethrough
                 if let rowIndex = rowIndex {
                     withAnimation {
                         toDos.toDosArray[rowIndex].isCompleted.toggle()

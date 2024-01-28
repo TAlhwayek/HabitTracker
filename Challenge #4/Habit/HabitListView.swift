@@ -38,22 +38,26 @@ struct HabitListView: View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach(habits.habitsArray) { habit in
+                    ForEach(habits.habitsArray.indices, id: \.self) { index in
                         VStack(alignment: .leading) {
                             HStack {
-                                Text(habit.title)
+                                Text(habits.habitsArray[index].title)
                                     .font(.title2.bold())
                             }
                             
                             HStack {
-                                Text(habit.description)
+                                Text(habits.habitsArray[index].description)
                                     .font(.caption)
                                 
                                 Spacer()
                                 
-                                Text("Times completed: \(habit.timesCompleted)")
+                                Text("Times completed: \(habits.habitsArray[index].timesCompleted)")
                                     .font(.caption)
                             }
+                        }
+                        .contentShape(Rectangle())
+                        .onLongPressGesture{
+                            habits.habitsArray[index].timesCompleted += 1
                         }
                     }
                     .onDelete(perform: removeItems)
@@ -72,6 +76,7 @@ struct HabitListView: View {
                         .bold()
                 }
             }
+            
             .toolbar {
                 // New habit button
                 ToolbarItem(placement: .topBarTrailing) {
