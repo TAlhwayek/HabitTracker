@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B1F83AB2B66EF3400B31FAB /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F83AA2B66EF3400B31FAB /* HelpView.swift */; };
 		9BFB57952B5B8D600067DCBD /* Challenge__4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57942B5B8D600067DCBD /* Challenge__4App.swift */; };
 		9BFB57972B5B8D600067DCBD /* HabitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57962B5B8D600067DCBD /* HabitListView.swift */; };
 		9BFB57992B5B8D620067DCBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFB57982B5B8D620067DCBD /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B1F83AA2B66EF3400B31FAB /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		9BFB57912B5B8D600067DCBD /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFB57942B5B8D600067DCBD /* Challenge__4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge__4App.swift; sourceTree = "<group>"; };
 		9BFB57962B5B8D600067DCBD /* HabitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				9BFB57AE2B5BAA4C0067DCBD /* Tabs.swift */,
 				9BFB57C72B5E22390067DCBD /* ListRowView.swift */,
 				9BFB57AC2B5BA2940067DCBD /* SettingsView.swift */,
+				9B1F83AA2B66EF3400B31FAB /* HelpView.swift */,
 				9B1F83A02B64C16700B31FAB /* ToDo */,
 				9B1F83A12B64C17800B31FAB /* Habit */,
 				9B1F83A72B65D63200B31FAB /* Misc */,
@@ -236,6 +239,7 @@
 				9BFB57CA2B607CFA0067DCBD /* EditToDoView.swift in Sources */,
 				9BFB57A92B5B9FD70067DCBD /* PriorityStyle.swift in Sources */,
 				9BFB57AF2B5BAA4C0067DCBD /* Tabs.swift in Sources */,
+				9B1F83AB2B66EF3400B31FAB /* HelpView.swift in Sources */,
 				9BFB57AB2B5BA12C0067DCBD /* MotivationalQuotes.swift in Sources */,
 				9BFB57B52B5C60B80067DCBD /* ToDos.swift in Sources */,
 			);

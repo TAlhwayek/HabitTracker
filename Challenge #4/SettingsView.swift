@@ -36,6 +36,25 @@ struct SettingsView: View {
                 .padding(.horizontal)
                 
                 Spacer()
+                
+                NavigationLink {
+                    HelpView()
+                } label: {
+                    Text("Help")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .foregroundStyle(Color(uiColor: .label))
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 50)
+                                .stroke((.blue), lineWidth: 1)
+                        }
+                        .contentShape(RoundedRectangle(cornerRadius: 50))
+                        .padding(.horizontal, 125)
+                }
+                
+                
+                
+                
             }
             
         }
