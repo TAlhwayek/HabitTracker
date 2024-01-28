@@ -13,7 +13,7 @@ struct HelpView: View {
             VStack(alignment: .leading) {
                 Text("Habit View:")
                     .font(.title3.bold())
-                    
+                
                 Text("- Hold an to mark it as completed")
             }
             .padding()
@@ -35,7 +35,7 @@ struct HelpView: View {
         .padding(.horizontal, 20)
         
         Spacer()
-
+        
     }
 }
 
