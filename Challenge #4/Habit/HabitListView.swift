@@ -5,6 +5,7 @@
 //  Created by Tony Alhwayek on 1/19/24.
 //
 
+import ConfettiSwiftUI
 import SwiftUI
 
 // TODO:
@@ -33,6 +34,7 @@ struct HabitListView: View {
     @State private var habits = Habits()
     @State private var showSettingsSheet = false
     @AppStorage("ShowQuotes") private var showQuotes: Bool = true
+    @State private var confettiCounter = 0
     
     var body: some View {
         NavigationStack {
@@ -58,6 +60,7 @@ struct HabitListView: View {
                         .contentShape(Rectangle())
                         .onLongPressGesture{
                             habits.habitsArray[index].timesCompleted += 1
+                            confettiCounter += 1
                         }
                     }
                     .onDelete(perform: removeItems)
@@ -65,6 +68,7 @@ struct HabitListView: View {
                 .listStyle(.plain)
                 .navigationTitle("Habit Tracker")
                 .navigationBarTitleDisplayMode(.inline)
+                .confettiCannon(counter: $confettiCounter)
                 
                 // Quotes at the bottom
                 if showQuotes {
@@ -99,6 +103,7 @@ struct HabitListView: View {
                 }
             }
         }
+        
     }
     
     func removeItems(at offset: IndexSet) {
