@@ -68,7 +68,7 @@ struct HabitListView: View {
                 .listStyle(.plain)
                 .navigationTitle("Habit Tracker")
                 .navigationBarTitleDisplayMode(.inline)
-                .confettiCannon(counter: $confettiCounter)
+                .confettiCannon(counter: $confettiCounter, num: 50, openingAngle: Angle.degrees(60), closingAngle: Angle.degrees(120), radius: 450)
                 
                 // Quotes at the bottom
                 if showQuotes {
