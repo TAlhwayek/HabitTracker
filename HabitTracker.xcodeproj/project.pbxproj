@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B1F83AB2B66EF3400B31FAB /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F83AA2B66EF3400B31FAB /* HelpView.swift */; };
+		9B1F83AE2B66FEB500B31FAB /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1F83AD2B66FEB500B31FAB /* ConfettiSwiftUI */; };
 		9BFB57952B5B8D600067DCBD /* Challenge__4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57942B5B8D600067DCBD /* Challenge__4App.swift */; };
 		9BFB57972B5B8D600067DCBD /* HabitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57962B5B8D600067DCBD /* HabitListView.swift */; };
 		9BFB57992B5B8D620067DCBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BFB57982B5B8D620067DCBD /* Assets.xcassets */; };
@@ -23,12 +24,6 @@
 		9BFB57B32B5C609D0067DCBD /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57B22B5C609D0067DCBD /* ToDo.swift */; };
 		9BFB57B52B5C60B80067DCBD /* ToDos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57B42B5C60B80067DCBD /* ToDos.swift */; };
 		9BFB57B72B5C61F90067DCBD /* AddToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57B62B5C61F90067DCBD /* AddToDoView.swift */; };
-		9BFB57BC2B5DAC9E0067DCBD /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 9BFB57BB2B5DAC9E0067DCBD /* Auth */; };
-		9BFB57BE2B5DAC9E0067DCBD /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 9BFB57BD2B5DAC9E0067DCBD /* Functions */; };
-		9BFB57C02B5DAC9E0067DCBD /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 9BFB57BF2B5DAC9E0067DCBD /* PostgREST */; };
-		9BFB57C22B5DAC9E0067DCBD /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 9BFB57C12B5DAC9E0067DCBD /* Realtime */; };
-		9BFB57C42B5DAC9E0067DCBD /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 9BFB57C32B5DAC9E0067DCBD /* Storage */; };
-		9BFB57C62B5DAC9E0067DCBD /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9BFB57C52B5DAC9E0067DCBD /* Supabase */; };
 		9BFB57C82B5E22390067DCBD /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57C72B5E22390067DCBD /* ListRowView.swift */; };
 		9BFB57CA2B607CFA0067DCBD /* EditToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB57C92B607CFA0067DCBD /* EditToDoView.swift */; };
 /* End PBXBuildFile section */
@@ -60,12 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BFB57C02B5DAC9E0067DCBD /* PostgREST in Frameworks */,
-				9BFB57BE2B5DAC9E0067DCBD /* Functions in Frameworks */,
-				9BFB57C62B5DAC9E0067DCBD /* Supabase in Frameworks */,
-				9BFB57BC2B5DAC9E0067DCBD /* Auth in Frameworks */,
-				9BFB57C42B5DAC9E0067DCBD /* Storage in Frameworks */,
-				9BFB57C22B5DAC9E0067DCBD /* Realtime in Frameworks */,
+				9B1F83AE2B66FEB500B31FAB /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,12 +152,7 @@
 			);
 			name = HabitTracker;
 			packageProductDependencies = (
-				9BFB57BB2B5DAC9E0067DCBD /* Auth */,
-				9BFB57BD2B5DAC9E0067DCBD /* Functions */,
-				9BFB57BF2B5DAC9E0067DCBD /* PostgREST */,
-				9BFB57C12B5DAC9E0067DCBD /* Realtime */,
-				9BFB57C32B5DAC9E0067DCBD /* Storage */,
-				9BFB57C52B5DAC9E0067DCBD /* Supabase */,
+				9B1F83AD2B66FEB500B31FAB /* ConfettiSwiftUI */,
 			);
 			productName = "Challenge #4";
 			productReference = 9BFB57912B5B8D600067DCBD /* HabitTracker.app */;
@@ -198,7 +183,7 @@
 			);
 			mainGroup = 9BFB57882B5B8D600067DCBD;
 			packageReferences = (
-				9BFB57BA2B5DAC9E0067DCBD /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				9B1F83AC2B66FEB500B31FAB /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 			);
 			productRefGroup = 9BFB57922B5B8D600067DCBD /* Products */;
 			projectDirPath = "";
@@ -449,46 +434,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9BFB57BA2B5DAC9E0067DCBD /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+		9B1F83AC2B66FEB500B31FAB /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/supabase-community/supabase-swift.git";
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.0;
+				minimumVersion = 1.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9BFB57BB2B5DAC9E0067DCBD /* Auth */ = {
+		9B1F83AD2B66FEB500B31FAB /* ConfettiSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9BFB57BA2B5DAC9E0067DCBD /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Auth;
-		};
-		9BFB57BD2B5DAC9E0067DCBD /* Functions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9BFB57BA2B5DAC9E0067DCBD /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Functions;
-		};
-		9BFB57BF2B5DAC9E0067DCBD /* PostgREST */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9BFB57BA2B5DAC9E0067DCBD /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = PostgREST;
-		};
-		9BFB57C12B5DAC9E0067DCBD /* Realtime */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9BFB57BA2B5DAC9E0067DCBD /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Realtime;
-		};
-		9BFB57C32B5DAC9E0067DCBD /* Storage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9BFB57BA2B5DAC9E0067DCBD /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Storage;
-		};
-		9BFB57C52B5DAC9E0067DCBD /* Supabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9BFB57BA2B5DAC9E0067DCBD /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Supabase;
+			package = 9B1F83AC2B66FEB500B31FAB /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
