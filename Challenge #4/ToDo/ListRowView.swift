@@ -15,8 +15,8 @@ struct ListRowView: View {
     // Used to show edit view
     @State private var isActive: Bool = false
     @State private var toDos = ToDos()
-    
     @State var toDo: ToDo
+    @State var rowIndex: Int?
     
     var body: some View {
         NavigationStack {
@@ -39,13 +39,15 @@ struct ListRowView: View {
                 }
             }
             .contentShape(Rectangle())
-            .strikethrough(isCompleted)
+            .strikethrough(toDos.toDosArray[rowIndex!].isCompleted)
             .onTapGesture {
                 isActive.toggle()
             }
             .onLongPressGesture {
-                withAnimation {
-                    isCompleted.toggle()
+                if let rowIndex = rowIndex {
+                    withAnimation {
+                        toDos.toDosArray[rowIndex].isCompleted.toggle()
+                    }
                 }
             }
             .navigationDestination(isPresented: $isActive) {

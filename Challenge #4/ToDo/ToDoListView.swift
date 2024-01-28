@@ -15,8 +15,8 @@ struct ToDoListView: View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach(toDos.toDosArray) { toDo in
-                        ListRowView(toDo: toDo)
+                    ForEach(toDos.toDosArray.indices, id: \.self) { index in
+                        ListRowView(toDo: toDos.toDosArray[index], rowIndex: index)
                     }
                     .onDelete(perform: removeItems)
                 }
