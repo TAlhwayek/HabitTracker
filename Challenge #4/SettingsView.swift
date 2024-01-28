@@ -16,31 +16,34 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Toggle("Show motivational quotes under habits", isOn: $showQuotes)
-                    .padding()
-                    .onChange(of: showQuotes) {
-                        UserDefaults.standard.set(showQuotes, forKey: "ShowQuotes")
+                Form {
+                    Section("Habits") {
+                        Toggle("Show motivational quotes", isOn: $showQuotes)
+                            .onChange(of: showQuotes) {
+                                UserDefaults.standard.set(showQuotes, forKey: "ShowQuotes")
+                            }
+                        
+                        Toggle("Show confetti on completion", isOn: $showConfetti)
+                            .onChange(of: showConfetti) {
+                                UserDefaults.standard.set(showConfetti, forKey: "ShowConfetti")
+                            }
                     }
-                
-                Toggle("Show confetti on habit completion", isOn: $showConfetti)
-                    .padding()
-                    .onChange(of: showConfetti) {
-                        UserDefaults.standard.set(showConfetti, forKey: "ShowConfetti")
-                    }
-                
-                // Theme section
-                HStack {
-                    Text("Select Theme")
                     
-                    Spacer()
-                    
-                    Picker("Select Theme", selection: $selectedTheme) {
-                        Text("Light").tag("light")
-                        Text("Dark").tag("dark")
-                        Text("System").tag("system")
+                    // Theme section
+                    Section("Theme") {
+                        HStack {
+                            Text("Select Theme")
+                            
+                            Spacer()
+                            
+                            Picker("", selection: $selectedTheme) {
+                                Text("Light").tag("light")
+                                Text("Dark").tag("dark")
+                                Text("System").tag("system")
+                            }
+                        }
                     }
                 }
-                .padding(.horizontal)
                 
                 Spacer()
                 
