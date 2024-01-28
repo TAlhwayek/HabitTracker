@@ -8,15 +8,23 @@
 import Supabase
 import SwiftUI
 
-let supabase = SupabaseClient(supabaseURL: URL(string: Secrets.url)!, supabaseKey: Secrets.key)
-let auth = supabase.auth
+
 
 struct SignUpView: View {
+    @Environment(\.dismiss) var dismiss
     @State private var userEmail: String = ""
     @State private var userPassword: String = ""
+    @FocusState private var keyboardFocused: Bool
+    
+    @State private var showError = false
+    @State private var authError = ""
+    
+ 
     
     var body: some View {
-        
+        let supabase = SupabaseClient(supabaseURL: URL(string: Secrets.url)!, supabaseKey: Secrets.key)
+        let auth = supabase.auth
+
         Spacer()
         VStack {
             Text("Sign Up")
@@ -47,24 +55,41 @@ struct SignUpView: View {
                         .stroke(.gray, lineWidth: 1)
                 }
                 .padding(.bottom, 20)
+                .focused($keyboardFocused)
             
             Button {
-//                try await supabase.auth.signUp(
-//                  email: userEmail,
-//                  password: userPassword
-//                )
+                Task {
+                    do {
+                        try await auth.signUp(
+                            email: userEmail,
+                            password: userPassword
+                        )
+                        keyboardFocused = false
+                        
+                        dismiss()
+                        
+                    } catch {
+                        print(error.localizedDescription)
+                        authError = error.localizedDescription
+                        showError = true
+                    }
+                }
             } label: {
                 Text("Sign Up")
+                    .frame(width: 150)
+                    .foregroundStyle(Color(uiColor: .label))
+                    .padding(10)
+                    .background(.blue)
+                    .contentShape(RoundedRectangle(cornerRadius: 20))
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
             }
-            .foregroundStyle(Color(uiColor: .label))
-            .padding(10)
-            .frame(width: 150)
-            .background(.blue)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
             
         }
-        
-
+        .alert("Error", isPresented: $showError) {
+            Button("OK") { }
+        } message: {
+            Text(authError)
+        }
         
         Spacer()
         Spacer()
