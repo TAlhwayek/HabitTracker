@@ -60,7 +60,9 @@ struct HabitListView: View {
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {}.onLongPressGesture(minimumDuration: 0.3) {
-                            print("RICE")
+                            // THIS IS A PLACEHOLDER SINCE I FOUND A FIX
+                            // KEEPING IT HERE IN CASE I NEED IT
+                            // LEAVE ME ALONE
                         }
                         .swipeActions(edge: .trailing) {
                             Button() {
@@ -76,14 +78,14 @@ struct HabitListView: View {
                             .tint(.green)
                             
                             Button(role: .destructive) {
-                               removeHabit(habit)
+                                removeHabit(habit)
                             } label: {
                                 Label("Delete", systemImage: "trash")
                             }
                         }
-
+                        
                         .swipeActions(edge: .leading) {
-
+                            
                         }
                     }
                     

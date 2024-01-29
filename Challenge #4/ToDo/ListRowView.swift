@@ -10,13 +10,10 @@ import SwiftUI
 
 
 struct ListRowView: View {
-    // Used for strikethrough
-    @State private var isCompleted: Bool = false
     // Used to show edit view
     @State private var isActive: Bool = false
     @State private var toDos = ToDos()
-    @State var toDo: ToDo
-    @State var rowIndex: Int?
+    @Binding var toDo: ToDo
     
     var body: some View {
         NavigationStack {
@@ -39,26 +36,23 @@ struct ListRowView: View {
                 }
             }
             .contentShape(Rectangle())
-            .strikethrough(toDos.toDosArray[rowIndex!].isCompleted)
+            .strikethrough(toDo.isCompleted)
             .onTapGesture {
                 isActive.toggle()
             }
             .onLongPressGesture {
-                // Modify the class entry
                 // This saves the strikethrough
-                if let rowIndex = rowIndex {
-                    withAnimation {
-                        toDos.toDosArray[rowIndex].isCompleted.toggle()
-                    }
+                withAnimation {
+                    toDo.isCompleted.toggle()
                 }
             }
-            .navigationDestination(isPresented: $isActive) {
-                EditToDoView(toDo: $toDo)
-            }
+        }
+        .navigationDestination(isPresented: $isActive) {
+            EditToDoView(toDo: $toDo)
         }
     }
 }
 
 #Preview {
-    ListRowView(toDo: ToDo(title: "Go to the gym", description: "Stay motivated", priority: "High"))
+    ListRowView(toDo: .constant(ToDo(title: "Go to the gym", description: "Stay motivated", priority: "High")))
 }
