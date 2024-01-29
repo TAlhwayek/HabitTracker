@@ -14,7 +14,7 @@ struct HelpView: View {
                 Text("Habit View:")
                     .font(.title3.bold())
                 
-                Text("- Hold an to mark it as completed")
+                Text("- Swipe left to complete or delete")
             }
             .padding()
             

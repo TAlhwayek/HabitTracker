@@ -41,32 +41,52 @@ struct HabitListView: View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach(habits.habitsArray.indices, id: \.self) { index in
+                    ForEach(habits.habitsArray) { habit in
                         VStack(alignment: .leading) {
                             HStack {
-                                Text(habits.habitsArray[index].title)
+                                Text(habit.title)
                                     .font(.title2.bold())
                             }
                             
                             HStack {
-                                Text(habits.habitsArray[index].description)
+                                Text(habit.description)
                                     .font(.caption)
                                 
                                 Spacer()
                                 
-                                Text("Times completed: \(habits.habitsArray[index].timesCompleted)")
+                                Text("Times completed: \(habit.timesCompleted)")
                                     .font(.caption)
                             }
                         }
                         .contentShape(Rectangle())
-                        .onLongPressGesture{
-                            habits.habitsArray[index].timesCompleted += 1
-                            if showConfetti {
-                                confettiCounter += 1
+                        .onTapGesture {}.onLongPressGesture(minimumDuration: 0.3) {
+                            print("RICE")
+                        }
+                        .swipeActions(edge: .trailing) {
+                            Button() {
+                                if let index = habits.habitsArray.firstIndex(where: { $0.id == habit.id }) {
+                                    habits.habitsArray[index].timesCompleted += 1
+                                    if showConfetti {
+                                        confettiCounter += 1
+                                    }
+                                }
+                            } label: {
+                                Label("Complete", systemImage: "checkmark.circle")
+                            }
+                            .tint(.green)
+                            
+                            Button(role: .destructive) {
+                               removeHabit(habit)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
                             }
                         }
+
+                        .swipeActions(edge: .leading) {
+
+                        }
                     }
-                    .onDelete(perform: removeItems)
+                    
                 }
                 .listStyle(.plain)
                 .navigationTitle("Habit Tracker")
@@ -109,8 +129,10 @@ struct HabitListView: View {
         
     }
     
-    func removeItems(at offset: IndexSet) {
-        habits.habitsArray.remove(atOffsets: offset)
+    func removeHabit(_ habit: Habit) {
+        if let index = habits.habitsArray.firstIndex(where: { $0.id == habit.id }) {
+            habits.habitsArray.remove(at: index)
+        }
     }
 }
 
