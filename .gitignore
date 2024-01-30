@@ -2,3 +2,4 @@
 *.xcuserstate
 Secrets.swift
 *.xcodeproj
+Preview Content/Preview Assets.xcassets
