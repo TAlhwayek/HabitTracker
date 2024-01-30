@@ -12,17 +12,19 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         UserDefaults.standard.register(defaults: ["ShowQuotes": true])
         UserDefaults.standard.register(defaults: ["ShowConfetti": true])
+        UserDefaults.standard.register(defaults: ["PerformVibration": true])
         return true
     }
 }
 
 @main
-struct Challenge__4App: App {
+struct HabitTracker_App: App {
     // This is also needed for registering
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     // Handling themes
-    @AppStorage("selectedTheme") var selectedTheme: String? // Default to system theme
+    // Optional = defaults to system theme
+    @AppStorage("selectedTheme") var selectedTheme: String?
     
     var body: some Scene {
         WindowGroup {

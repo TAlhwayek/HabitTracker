@@ -35,6 +35,7 @@ struct HabitListView: View {
     @State private var showSettingsSheet = false
     @AppStorage("ShowQuotes") private var showQuotes: Bool = true
     @AppStorage("ShowConfetti") private var showConfetti: Bool = true
+    @AppStorage("PerformVibration") private var performVibration: Bool = true
     @State private var confettiCounter = 0
     
     var body: some View {
@@ -70,6 +71,10 @@ struct HabitListView: View {
                                     habits.habitsArray[index].timesCompleted += 1
                                     if showConfetti {
                                         confettiCounter += 1
+                                    }
+                                    
+                                    if performVibration {
+                                         vibrate()
                                     }
                                 }
                             } label: {
@@ -128,13 +133,17 @@ struct HabitListView: View {
                 }
             }
         }
-        
     }
     
     func removeHabit(_ habit: Habit) {
         if let index = habits.habitsArray.firstIndex(where: { $0.id == habit.id }) {
             habits.habitsArray.remove(at: index)
         }
+    }
+    
+    private func vibrate() {
+        let feedback = UIImpactFeedbackGenerator(style: .heavy)
+        feedback.impactOccurred()
     }
 }
 
