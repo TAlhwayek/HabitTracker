@@ -127,7 +127,7 @@ struct HabitListView: View {
                     }
                     .sheet(isPresented: $showSettingsSheet) {
                         SettingsView()
-                            .presentationDetents([.medium, .large])
+                            .presentationDetents([.height(480), .large])
                             .presentationDragIndicator(.visible)
                     }
                 }
@@ -142,7 +142,7 @@ struct HabitListView: View {
     }
     
     private func vibrate() {
-        let feedback = UIImpactFeedbackGenerator(style: .heavy)
+        let feedback = UIImpactFeedbackGenerator(style: .medium)
         feedback.impactOccurred()
     }
 }
