@@ -61,7 +61,7 @@ struct HabitListView: View {
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {}.onLongPressGesture(minimumDuration: 0.3) {
-                            // THIS IS A PLACEHOLDER SINCE I FOUND A FIX
+                            // THIS IS A PLACEHOLDER SINCE I FOUND A FIX WHEN I WAS USING THIS BEFORE
                             // KEEPING IT HERE IN CASE I NEED IT
                             // LEAVE ME ALONE
                         }
@@ -74,7 +74,7 @@ struct HabitListView: View {
                                     }
                                     
                                     if performVibration {
-                                         vibrate()
+                                        vibrate()
                                     }
                                 }
                             } label: {

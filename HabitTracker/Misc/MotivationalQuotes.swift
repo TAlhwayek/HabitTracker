@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Do I even need these? Who would listen to these?
 let motivationalQuotes = [
     "Believe you can and you're halfway there.",
     "The only way to do great work is to love what you do.",

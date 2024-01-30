@@ -15,6 +15,7 @@ struct EditToDoView: View {
     
     let priorities = ["Low", "Medium", "High"]
     
+    // Helps the cancel button work since changes are made as the user edits
     init(toDo: Binding<ToDo>) {
         _toDo = toDo
         _initialToDo = State(initialValue: toDo.wrappedValue)
@@ -66,28 +67,3 @@ struct EditToDoView: View {
 #Preview {
     EditToDoView(toDo: .constant(ToDo(title: "Test", description: "Test desc", priority: "Low")))
 }
-
-// Forgot why this is here lol
-//        NavigationStack {
-//            List {
-//                HStack {
-//                    Text("Title:")
-//                    Spacer()
-//                    Text(toDo.title)
-//                }
-//
-//                HStack {
-//                    Text("Description:")
-//                    Spacer()
-//                    Text(toDo.description)
-//                }
-//
-//                HStack {
-//                    Text("Priority:")
-//                    Spacer()
-//                    Text(toDo.priority)
-//                        .priorityStyle(for: toDo)
-//                }
-//            }
-//            .navigationTitle("View To-do")
-//            .navigationBarTitleDisplayMode(.inline)

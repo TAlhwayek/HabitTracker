@@ -42,7 +42,7 @@ struct AddHabitView: View {
         }
     }
 }
-    
-    #Preview {
-        AddHabitView(habits: Habits())
-    }
+
+#Preview {
+    AddHabitView(habits: Habits())
+}

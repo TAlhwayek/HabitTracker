@@ -41,7 +41,7 @@ struct ListRowView: View {
                 isActive.toggle()
             }
             .onLongPressGesture {
-                // This saves the strikethrough
+                // Mark as completed?
                 withAnimation {
                     toDo.isCompleted.toggle()
                 }

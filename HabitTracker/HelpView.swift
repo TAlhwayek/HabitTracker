@@ -18,7 +18,6 @@ struct HelpView: View {
             }
             .padding()
             
-            
             Rectangle()
                 .frame(height: 2)
                 .foregroundStyle(Color.gray.opacity(0.3))
