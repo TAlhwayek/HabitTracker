@@ -11,6 +11,7 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showQuotes: Bool = UserDefaults.standard.bool(forKey: "ShowQuotes")
     @State private var showConfetti: Bool = UserDefaults.standard.bool(forKey: "ShowConfetti")
+    @State private var performVibration: Bool = UserDefaults.standard.bool(forKey: "PerformVibration")
     @AppStorage("selectedTheme") var selectedTheme: String = ""
     
     var body: some View {
@@ -26,6 +27,11 @@ struct SettingsView: View {
                         Toggle("Show confetti on completion", isOn: $showConfetti)
                             .onChange(of: showConfetti) {
                                 UserDefaults.standard.set(showConfetti, forKey: "ShowConfetti")
+                            }
+                        
+                        Toggle("Vibrate on completion", isOn: $performVibration)
+                            .onChange(of: performVibration) {
+                                UserDefaults.standard.set(performVibration, forKey: "PerformVibration")
                             }
                     }
                     
