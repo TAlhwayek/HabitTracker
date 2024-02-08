@@ -1,6 +1,6 @@
 //
 //  Habits.swift
-//  Challenge #4
+//  HabitTracker
 //
 //  Created by Tony Alhwayek on 1/19/24.
 //

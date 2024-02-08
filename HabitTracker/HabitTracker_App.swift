@@ -1,6 +1,6 @@
 //
 //  Challenge__4App.swift
-//  Challenge #4
+//  HabitTracker
 //
 //  Created by Tony Alhwayek on 1/19/24.
 //
@@ -27,13 +27,24 @@ struct HabitTracker_App: App {
     // Optional = defaults to system theme
     @AppStorage("selectedTheme") var selectedTheme: String?
     
+    var container: ModelContainer
+    init() {
+        do {
+            let config1 = ModelConfiguration(for: Habit.self)
+            let config2 = ModelConfiguration(for: ToDo.self)
+            
+            container = try ModelContainer(for: Habit.self, ToDo.self, configurations: config1, config2)
+        } catch {
+            fatalError("Failed to configure SwiftData container.")
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
             Tabs()
                 .preferredColorScheme(getColorScheme())
         }
-        .modelContainer(for: Habit.self)
-//        .modelContainer(for: ToDo.self)
+        .modelContainer(container)
     }
     
     func getColorScheme() -> ColorScheme? {

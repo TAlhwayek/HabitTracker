@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Challenge #4
+//  HabitTracker
 //
 //  Created by Tony Alhwayek on 1/19/24.
 //
@@ -120,9 +120,6 @@ struct HabitListView: View {
     }
     
     func removeHabit(_ habit: Habit) {
-//        if let index = habits.firstIndex(where: { $0.id == habit.id }) {
-//            habits.remove(at: index)
-//        }
         modelContext.delete(habit)
     }
     

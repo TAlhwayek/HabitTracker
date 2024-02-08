@@ -1,13 +1,15 @@
 //
 //  AddToDoView.swift
-//  Challenge #4
+//  HabitTracker
 //
 //  Created by Tony Alhwayek on 1/20/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct AddToDoView: View {
+    @Environment(\.modelContext) var modelContext_toDo
     @Environment(\.dismiss) var dismiss
     
     @State private var title = ""
@@ -15,8 +17,6 @@ struct AddToDoView: View {
     @State private var priority = "Low"
     
     let priorities = ["Low", "Medium", "High"]
-    
-    var toDos: ToDos
     
     var body: some View {
         NavigationStack {
@@ -35,8 +35,8 @@ struct AddToDoView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Add") {
-                        let newToDo = ToDo(title: title, description: description, priority: priority)
-                        toDos.toDosArray.append(newToDo)
+                        let newToDo = ToDo(title: title, desc: description, priority: priority, isCompleted: false)
+                        modelContext_toDo.insert(newToDo)
                         dismiss()
                     }
                 }
@@ -53,5 +53,5 @@ struct AddToDoView: View {
 }
 
 #Preview {
-    AddToDoView(toDos: ToDos())
+    AddToDoView()
 }

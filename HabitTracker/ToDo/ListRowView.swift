@@ -1,19 +1,20 @@
 //
 //  ListRowView.swift
-//  Challenge #4
+//  HabitTracker
 //
 //  Created by Tony Alhwayek on 1/20/24.
 //
 
+import SwiftData
 import SwiftUI
 
-
-
 struct ListRowView: View {
+    @Environment(\.modelContext) var modelContext_toDo
+    
+    var toDo: ToDo
+    
     // Used to show edit view
     @State private var isActive: Bool = false
-    @State private var toDos = ToDos()
-    @Binding var toDo: ToDo
     
     var body: some View {
         NavigationStack {
@@ -24,7 +25,7 @@ struct ListRowView: View {
                 }
                 
                 HStack {
-                    Text(toDo.description)
+                    Text(toDo.desc)
                         .font(.caption)
                     
                     Spacer()
@@ -48,11 +49,11 @@ struct ListRowView: View {
             }
         }
         .navigationDestination(isPresented: $isActive) {
-            EditToDoView(toDo: $toDo)
+//            EditToDoView(toDo: $toDo)
         }
     }
 }
 
 #Preview {
-    ListRowView(toDo: .constant(ToDo(title: "Go to the gym", description: "Stay motivated", priority: "High")))
+    ListRowView(toDo: ToDo(title: "Go to the gym", desc: "Stay motivated", priority: "High", isCompleted: false))
 }

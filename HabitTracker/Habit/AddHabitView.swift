@@ -1,6 +1,6 @@
 //
 //  AddHabitView.swift
-//  Challenge #4
+//  HabitTracker
 //
 //  Created by Tony Alhwayek on 1/19/24.
 //
@@ -11,6 +11,7 @@ import SwiftUI
 struct AddHabitView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
+    
     @State private var title = ""
     @State private var description = ""
     

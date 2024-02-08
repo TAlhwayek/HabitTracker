@@ -10,7 +10,6 @@ import SwiftUI
 struct EditToDoView: View {
     @Binding var toDo: ToDo
     @Environment(\.dismiss) var dismiss
-    @State private var toDos = ToDos()
     @State private var initialToDo: ToDo
     
     let priorities = ["Low", "Medium", "High"]
@@ -25,7 +24,7 @@ struct EditToDoView: View {
         NavigationStack {
             List {
                 TextField("Title", text: $toDo.title)
-                TextField("Description", text: $toDo.description)
+                TextField("Description", text: $toDo.desc)
                 Picker("Priority", selection: $toDo.priority) {
                     ForEach(priorities, id: \.self) {
                         Text($0)
@@ -36,9 +35,9 @@ struct EditToDoView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
                         // Updates class, which updates user defaults
-                        if let index = toDos.toDosArray.firstIndex(where: { $0.id == toDo.id }) {
-                            toDos.toDosArray[index] = toDo
-                        }
+//                        if let index = toDos.firstIndex(where: { $0.id == toDo.id }) {
+//                            toDos[index] = toDo
+//                        }
                         
                         dismiss()
                     }
@@ -65,5 +64,5 @@ struct EditToDoView: View {
 
 
 #Preview {
-    EditToDoView(toDo: .constant(ToDo(title: "Test", description: "Test desc", priority: "Low")))
+    EditToDoView(toDo: .constant(ToDo(title: "Test", desc: "Test desc", priority: "Low", isCompleted: false)))
 }

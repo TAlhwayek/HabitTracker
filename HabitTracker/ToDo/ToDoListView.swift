@@ -1,57 +1,72 @@
 //
 //  ToDoListView.swift
-//  Challenge #4
+//  HabitTracker
 //
 //  Created by Tony Alhwayek on 1/20/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ToDoListView: View {
-    @State private var toDos = ToDos()
+    @Environment(\.modelContext) var modelContext_toDo
+    
+    @Query(sort: [
+        SortDescriptor(\ToDo.priority),
+        SortDescriptor(\ToDo.title)
+    ]) var toDos: [ToDo]
+    
+    //    @Query(sort: (\ToDo.priority)) var toDos: [ToDo]
+    
     @State private var showSettingsSheet = false
     
     var body: some View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach($toDos.toDosArray) { $toDo in
-                        ListRowView(toDo: $toDo)
+                    ForEach(toDos) { toDo in
+                        ListRowView(toDo: toDo)
+                            .swipeActions {
+                                Button(role: .destructive) {
+                                    removeToDo(toDo)
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
                     }
-                    .onDelete(perform: removeItems)
+                }
+                .toolbar {
+                    // New To-do item button
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink(destination: AddToDoView()) {
+                            Image(systemName: "plus")
+                        }
+                    }
+                    
+                    // Settings button
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button(action: {
+                            showSettingsSheet.toggle()
+                        }) {
+                            Image(systemName: "gearshape")
+                        }
+                        .sheet(isPresented: $showSettingsSheet) {
+                            SettingsView()
+                                .presentationDetents([.height(450), .large])
+                                .presentationDragIndicator(.visible)
+                        }
+                    }
                 }
                 .listStyle(.plain)
                 .navigationTitle("Habit Tracker")
                 .navigationBarTitleDisplayMode(.inline)
             }
-            .toolbar {
-                // New To-do item button
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: AddToDoView(toDos: toDos)) {
-                        Image(systemName: "plus")
-                    }
-                }
-                
-                // Settings button
-                ToolbarItem(placement: .topBarLeading) {
-                    Button(action: {
-                        showSettingsSheet.toggle()
-                    }) {
-                        Image(systemName: "gearshape")
-                    }
-                    .sheet(isPresented: $showSettingsSheet) {
-                        SettingsView()
-                            .presentationDetents([.height(450), .large])
-                            .presentationDragIndicator(.visible)
-                    }
-                }
-            }
             .navigationTitle("To-do List")
         }
     }
     
-    func removeItems(at offset: IndexSet) {
-        toDos.toDosArray.remove(atOffsets: offset)
+    func removeToDo(_ toDo: ToDo) {
+        modelContext_toDo.delete(toDo)
     }
 }
 
