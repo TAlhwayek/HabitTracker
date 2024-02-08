@@ -33,6 +33,7 @@ struct HabitTracker_App: App {
                 .preferredColorScheme(getColorScheme())
         }
         .modelContainer(for: Habit.self)
+//        .modelContainer(for: ToDo.self)
     }
     
     func getColorScheme() -> ColorScheme? {
