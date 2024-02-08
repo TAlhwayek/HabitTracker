@@ -12,7 +12,6 @@ import SwiftUI
 struct HabitListView: View {
     @Environment(\.modelContext) var modelContext
     
-    @Query var habits: [Habit]
     @State private var showSettingsSheet = false
     @State private var confettiCounter = 0
     
@@ -21,10 +20,7 @@ struct HabitListView: View {
     @AppStorage("PerformVibration") private var performVibration: Bool = true
 
     // Sort using SwiftData
-//    @Query(sort: [
-//        SortDescriptor(\Habit.priority)
-//    
-//    ])
+    @Query(sort: \Habit.title) var habits: [Habit]
     
     var body: some View {
         NavigationStack {
