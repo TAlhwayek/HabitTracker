@@ -45,5 +45,5 @@ struct AddHabitView: View {
 }
 
 #Preview {
-  AddHabitView() // Provide an empty array for preview
+    AddHabitView() // Provide an empty array for preview
 }

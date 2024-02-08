@@ -18,7 +18,7 @@ struct HabitListView: View {
     @AppStorage("ShowQuotes") private var showQuotes: Bool = true
     @AppStorage("ShowConfetti") private var showConfetti: Bool = true
     @AppStorage("PerformVibration") private var performVibration: Bool = true
-
+    
     // Sort using SwiftData
     @Query(sort: \Habit.title) var habits: [Habit]
     
