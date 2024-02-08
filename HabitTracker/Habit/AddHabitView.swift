@@ -5,14 +5,15 @@
 //  Created by Tony Alhwayek on 1/19/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct AddHabitView: View {
+    @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
     @State private var title = ""
     @State private var description = ""
-    
-    var habits: Habits
+    @Binding var habits: [Habit]
     
     var body: some View {
         NavigationStack {
@@ -26,8 +27,8 @@ struct AddHabitView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Add") {
-                        let newHabit = Habit(title: title, description: description)
-                        habits.habitsArray.append(newHabit)
+                        let newHabit = Habit(title: title, desc: description, timesCompleted: 0)
+                        modelContext.insert(newHabit)
                         dismiss()
                     }
                 }
@@ -44,5 +45,5 @@ struct AddHabitView: View {
 }
 
 #Preview {
-    AddHabitView(habits: Habits())
+  AddHabitView(habits: .constant([])) // Provide an empty array for preview
 }

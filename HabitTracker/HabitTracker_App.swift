@@ -5,6 +5,7 @@
 //  Created by Tony Alhwayek on 1/19/24.
 //
 
+import SwiftData
 import SwiftUI
 
 // Registering user defaults to default to on
@@ -31,6 +32,7 @@ struct HabitTracker_App: App {
             Tabs()
                 .preferredColorScheme(getColorScheme())
         }
+        .modelContainer(for: Habit.self)
     }
     
     func getColorScheme() -> ColorScheme? {

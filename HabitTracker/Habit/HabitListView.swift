@@ -6,6 +6,7 @@
 //
 
 import ConfettiSwiftUI
+import SwiftData
 import SwiftUI
 
 // TODO:
@@ -31,7 +32,7 @@ import SwiftUI
 // Check theme? Maybe allow user to force dark/light mode or use system -DONE
 
 struct HabitListView: View {
-    @State private var habits = Habits()
+    @State private var habits = [Habit]()
     @State private var showSettingsSheet = false
     @AppStorage("ShowQuotes") private var showQuotes: Bool = true
     @AppStorage("ShowConfetti") private var showConfetti: Bool = true
@@ -42,7 +43,7 @@ struct HabitListView: View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach(habits.habitsArray) { habit in
+                    ForEach(habits) { habit in
                         VStack(alignment: .leading) {
                             HStack {
                                 Text(habit.title)
@@ -50,7 +51,7 @@ struct HabitListView: View {
                             }
                             
                             HStack {
-                                Text(habit.description)
+                                Text(habit.desc)
                                     .font(.caption)
                                 
                                 Spacer()
@@ -67,8 +68,8 @@ struct HabitListView: View {
                         }
                         .swipeActions(edge: .trailing) {
                             Button() {
-                                if let index = habits.habitsArray.firstIndex(where: { $0.id == habit.id }) {
-                                    habits.habitsArray[index].timesCompleted += 1
+                                if let index = habits.firstIndex(where: { $0.id == habit.id }) {
+                                    habits[index].timesCompleted += 1
                                     if showConfetti {
                                         confettiCounter += 1
                                     }
@@ -110,34 +111,35 @@ struct HabitListView: View {
                         .bold()
                 }
             }
-            
-            .toolbar {
-                // New habit button
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: AddHabitView(habits: habits)) {
-                        Image(systemName: "plus")
-                    }
-                }
-                // Settings button
-                ToolbarItem(placement: .topBarLeading) {
-                    Button(action: {
-                        showSettingsSheet.toggle()
-                    }) {
-                        Image(systemName: "gearshape")
-                    }
-                    .sheet(isPresented: $showSettingsSheet) {
-                        SettingsView()
-                            .presentationDetents([.height(450), .large])
-                            .presentationDragIndicator(.visible)
-                    }
+        }
+        .toolbar {
+            // New habit button
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink(destination: AddHabitView(habits: $habits)) {
+                    Image(systemName: "plus")
                 }
             }
+            // Settings button
+            ToolbarItem(placement: .topBarLeading) {
+                Button(action: {
+                    showSettingsSheet.toggle()
+                }) {
+                    Image(systemName: "gearshape")
+                }
+                .sheet(isPresented: $showSettingsSheet) {
+                    SettingsView()
+                        .presentationDetents([.height(450), .large])
+                        .presentationDragIndicator(.visible)
+                }
+            }
+            
         }
+        
     }
     
     func removeHabit(_ habit: Habit) {
-        if let index = habits.habitsArray.firstIndex(where: { $0.id == habit.id }) {
-            habits.habitsArray.remove(at: index)
+        if let index = habits.firstIndex(where: { $0.id == habit.id }) {
+            habits.remove(at: index)
         }
     }
     
