@@ -13,7 +13,6 @@ struct AddHabitView: View {
     @Environment(\.dismiss) var dismiss
     @State private var title = ""
     @State private var description = ""
-    @Binding var habits: [Habit]
     
     var body: some View {
         NavigationStack {
@@ -45,5 +44,5 @@ struct AddHabitView: View {
 }
 
 #Preview {
-  AddHabitView(habits: .constant([])) // Provide an empty array for preview
+  AddHabitView() // Provide an empty array for preview
 }

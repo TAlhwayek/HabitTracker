@@ -9,35 +9,22 @@ import ConfettiSwiftUI
 import SwiftData
 import SwiftUI
 
-// TODO:
-
-// Set up 'times completed' - DONE
-//              Maybe add done button on detailview
-//              Also allow edits in detailview?
-//              Make it rain confetti once done
-// Check challenge webpage
-// Maybe extra themes?
-
-
-// Maybe sort todolist by priority
-//              or put them in another section that shows completed today
-//              Then reset daily
-
-// Save settings and load (UserDefaults) - DONE
-// DetailView when clicked - DONE
-// Make detail view editable... somehow - DONE
-// Maybe tab bar that switches between habits and to-do list? - DONE
-// Maybe either strikethrough to-dos -DONE
-//              That means I have to remove priority from habits - DONE
-// Check theme? Maybe allow user to force dark/light mode or use system -DONE
-
 struct HabitListView: View {
-    @State private var habits = [Habit]()
+    @Environment(\.modelContext) var modelContext
+    
+    @Query var habits: [Habit]
     @State private var showSettingsSheet = false
+    @State private var confettiCounter = 0
+    
     @AppStorage("ShowQuotes") private var showQuotes: Bool = true
     @AppStorage("ShowConfetti") private var showConfetti: Bool = true
     @AppStorage("PerformVibration") private var performVibration: Bool = true
-    @State private var confettiCounter = 0
+
+    // Sort using SwiftData
+//    @Query(sort: [
+//        SortDescriptor(\Habit.priority)
+//    
+//    ])
     
     var body: some View {
         NavigationStack {
@@ -100,6 +87,27 @@ struct HabitListView: View {
                 .navigationTitle("Habit Tracker")
                 .navigationBarTitleDisplayMode(.inline)
                 .confettiCannon(counter: $confettiCounter, num: 50, openingAngle: Angle.degrees(60), closingAngle: Angle.degrees(120), radius: 450)
+                .toolbar {
+                    // New habit button
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink(destination: AddHabitView()) {
+                            Image(systemName: "plus")
+                        }
+                    }
+                    // Settings button
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button(action: {
+                            showSettingsSheet.toggle()
+                        }) {
+                            Image(systemName: "gearshape")
+                        }
+                        .sheet(isPresented: $showSettingsSheet) {
+                            SettingsView()
+                                .presentationDetents([.height(450), .large])
+                                .presentationDragIndicator(.visible)
+                        }
+                    }
+                }
                 
                 // Quotes at the bottom
                 if showQuotes {
@@ -111,36 +119,15 @@ struct HabitListView: View {
                         .bold()
                 }
             }
-        }
-        .toolbar {
-            // New habit button
-            ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink(destination: AddHabitView(habits: $habits)) {
-                    Image(systemName: "plus")
-                }
-            }
-            // Settings button
-            ToolbarItem(placement: .topBarLeading) {
-                Button(action: {
-                    showSettingsSheet.toggle()
-                }) {
-                    Image(systemName: "gearshape")
-                }
-                .sheet(isPresented: $showSettingsSheet) {
-                    SettingsView()
-                        .presentationDetents([.height(450), .large])
-                        .presentationDragIndicator(.visible)
-                }
-            }
             
         }
-        
     }
     
     func removeHabit(_ habit: Habit) {
-        if let index = habits.firstIndex(where: { $0.id == habit.id }) {
-            habits.remove(at: index)
-        }
+//        if let index = habits.firstIndex(where: { $0.id == habit.id }) {
+//            habits.remove(at: index)
+//        }
+        modelContext.delete(habit)
     }
     
     private func vibrate() {
@@ -152,3 +139,25 @@ struct HabitListView: View {
 #Preview {
     HabitListView()
 }
+
+// TODO:
+
+// Set up 'times completed' - DONE
+//              Maybe add done button on detailview
+//              Also allow edits in detailview?
+//              Make it rain confetti once done
+// Check challenge webpage
+// Maybe extra themes?
+
+
+// Maybe sort todolist by priority
+//              or put them in another section that shows completed today
+//              Then reset daily
+
+// Save settings and load (UserDefaults) - DONE
+// DetailView when clicked - DONE
+// Make detail view editable... somehow - DONE
+// Maybe tab bar that switches between habits and to-do list? - DONE
+// Maybe either strikethrough to-dos -DONE
+//              That means I have to remove priority from habits - DONE
+// Check theme? Maybe allow user to force dark/light mode or use system -DONE
