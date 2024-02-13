@@ -26,8 +26,9 @@ struct HelpView: View {
             VStack(alignment: .leading) {
                 Text("To-do:")
                     .font(.title3.bold())
-                Text("- Tap on a to-do item to edit it")
-                Text("- Hold an item to mark it as completed")
+                Text("- Tap on a to-do item to edit")
+                Text("- Swipe left to delete")
+//                Text("- Hold an item to mark it as completed")
             }
             .padding()
         }
