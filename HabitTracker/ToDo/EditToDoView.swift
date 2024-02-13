@@ -42,7 +42,9 @@ struct EditToDoView: View {
                     .foregroundStyle(.red)
                 }
             }
-            .navigationBarBackButtonHidden()
+            .navigationTitle("Edit To-Do")
+            .navigationBarTitleDisplayMode(.inline)
+            .interactiveDismissDisabled()
         }
         .onAppear {
             copyToDo()
