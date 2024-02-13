@@ -10,7 +10,6 @@ import SwiftData
 
 @Model
 class ToDo {
-    
     var id = UUID()
     var title: String
     var desc: String
