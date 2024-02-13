@@ -12,7 +12,7 @@ struct ToDoListView: View {
     @Environment(\.modelContext) var modelContext_toDo
     
     @Query(sort: [
-        SortDescriptor(\ToDo.priority),
+//        SortDescriptor(\ToDo.priority),
         SortDescriptor(\ToDo.title)
     ]) var toDos: [ToDo]
     
@@ -23,9 +23,8 @@ struct ToDoListView: View {
     var body: some View {
         NavigationStack {
             List(toDos, id: \.id) { toDo in
-                NavigationLink(destination: EditToDoView(toDo: toDo)) {
+                
                     ListRowView(toDo: toDo)
-                }
                 .swipeActions {
                     Button(role: .destructive) {
                         removeToDo(toDo)
@@ -34,9 +33,6 @@ struct ToDoListView: View {
                     }
                 }
             }
-            
-            
-            
             .toolbar {
                 // New To-do item button
                 ToolbarItem(placement: .topBarTrailing) {
