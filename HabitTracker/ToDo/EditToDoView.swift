@@ -5,20 +5,15 @@
 //  Created by Tony Alhwayek on 1/23/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct EditToDoView: View {
-    @Binding var toDo: ToDo
     @Environment(\.dismiss) var dismiss
-    @State private var initialToDo: ToDo
+    @Bindable var toDo: ToDo
+    @State var initialToDo = ToDo(title: "", desc: "", priority: "Low", isCompleted: false)
     
     let priorities = ["Low", "Medium", "High"]
-    
-    // Helps the cancel button work since changes are made as the user edits
-    init(toDo: Binding<ToDo>) {
-        _toDo = toDo
-        _initialToDo = State(initialValue: toDo.wrappedValue)
-    }
     
     var body: some View {
         NavigationStack {
@@ -34,11 +29,6 @@ struct EditToDoView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        // Updates class, which updates user defaults
-                        //                        if let index = toDos.firstIndex(where: { $0.id == toDo.id }) {
-                        //                            toDos[index] = toDo
-                        //                        }
-                        
                         dismiss()
                     }
                 }
@@ -46,7 +36,7 @@ struct EditToDoView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Cancel") {
                         // Reset edited values
-                        toDo = initialToDo
+                        resetToDo()
                         dismiss()
                     }
                     .foregroundStyle(.red)
@@ -55,14 +45,27 @@ struct EditToDoView: View {
             .navigationBarBackButtonHidden()
         }
         .onAppear {
-            // Store initial ToDo when the view appears
-            initialToDo = toDo
+            copyToDo()
         }
+    }
+    
+    func copyToDo() {
+        initialToDo.title = toDo.title
+        initialToDo.desc = toDo.desc
+        initialToDo.priority = toDo.priority
+        initialToDo.isCompleted = toDo.isCompleted
+    }
+    
+    func resetToDo() {
+        toDo.title = initialToDo.title
+        toDo.desc = initialToDo.desc
+        toDo.priority = initialToDo.priority
+        toDo.isCompleted = initialToDo.isCompleted
     }
 }
 
 
 
 #Preview {
-    EditToDoView(toDo: .constant(ToDo(title: "Test", desc: "Test desc", priority: "Low", isCompleted: false)))
+    EditToDoView(toDo: ToDo(title: "", desc: "", priority: "", isCompleted: false), initialToDo: ToDo(title: "", desc: "", priority: "", isCompleted: false))
 }

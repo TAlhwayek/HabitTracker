@@ -27,25 +27,15 @@ struct HabitTracker_App: App {
     // Optional = defaults to system theme
     @AppStorage("selectedTheme") var selectedTheme: String?
     
-    var container: ModelContainer
-    init() {
-        do {
-            let config1 = ModelConfiguration(for: Habit.self)
-            let config2 = ModelConfiguration(for: ToDo.self)
-            
-            container = try ModelContainer(for: Habit.self, ToDo.self, configurations: config1, config2)
-        } catch {
-            fatalError("Failed to configure SwiftData container.")
-        }
-    }
-    
     var body: some Scene {
         WindowGroup {
             Tabs()
                 .preferredColorScheme(getColorScheme())
         }
-        .modelContainer(container)
+        .modelContainer(for: [Habit.self, ToDo.self])
     }
+    //        .modelContainer(for: Habit.self)
+    //        .modelContainer(for: ToDo.self)
     
     func getColorScheme() -> ColorScheme? {
         switch selectedTheme {

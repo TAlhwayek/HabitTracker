@@ -22,45 +22,46 @@ struct ToDoListView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                List {
-                    ForEach(toDos) { toDo in
-                        ListRowView(toDo: toDo)
-                            .swipeActions {
-                                Button(role: .destructive) {
-                                    removeToDo(toDo)
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
-                            }
+            List(toDos, id: \.id) { toDo in
+                NavigationLink(destination: EditToDoView(toDo: toDo)) {
+                    ListRowView(toDo: toDo)
+                }
+                .swipeActions {
+                    Button(role: .destructive) {
+                        removeToDo(toDo)
+                    } label: {
+                        Label("Delete", systemImage: "trash")
                     }
                 }
-                .toolbar {
-                    // New To-do item button
-                    ToolbarItem(placement: .topBarTrailing) {
-                        NavigationLink(destination: AddToDoView()) {
-                            Image(systemName: "plus")
-                        }
-                    }
-                    
-                    // Settings button
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button(action: {
-                            showSettingsSheet.toggle()
-                        }) {
-                            Image(systemName: "gearshape")
-                        }
-                        .sheet(isPresented: $showSettingsSheet) {
-                            SettingsView()
-                                .presentationDetents([.height(450), .large])
-                                .presentationDragIndicator(.visible)
-                        }
-                    }
-                }
-                .listStyle(.plain)
-                .navigationTitle("Habit Tracker")
-                .navigationBarTitleDisplayMode(.inline)
             }
+            
+            
+            
+            .toolbar {
+                // New To-do item button
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: AddToDoView()) {
+                        Image(systemName: "plus")
+                    }
+                }
+                
+                // Settings button
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        showSettingsSheet.toggle()
+                    }) {
+                        Image(systemName: "gearshape")
+                    }
+                    .sheet(isPresented: $showSettingsSheet) {
+                        SettingsView()
+                            .presentationDetents([.height(450), .large])
+                            .presentationDragIndicator(.visible)
+                    }
+                }
+            }
+            .listStyle(.plain)
+            .navigationTitle("Habit Tracker")
+            .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("To-do List")
         }
     }

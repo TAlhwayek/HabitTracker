@@ -13,44 +13,35 @@ struct ListRowView: View {
     
     var toDo: ToDo
     
-    // Used to show edit view
-    @State private var isActive: Bool = false
-    
     var body: some View {
-        NavigationStack {
-            VStack(alignment: .leading) {
-                HStack {
-                    Text(toDo.title)
-                        .font(.title2.bold())
-                }
+        VStack(alignment: .leading) {
+            
+            Text(toDo.title)
+                .font(.title2.bold())
+            
+            HStack {
+                Text(toDo.desc)
+                    .font(.caption)
                 
-                HStack {
-                    Text(toDo.desc)
-                        .font(.caption)
-                    
-                    Spacer()
-                    
-                    Text(toDo.priority)
-                        .font(.caption)
-                        .priorityStyle(for: toDo)
-                    
-                }
-            }
-            .contentShape(Rectangle())
-            .strikethrough(toDo.isCompleted)
-            .onTapGesture {
-                isActive.toggle()
-            }
-            .onLongPressGesture {
-                // Mark as completed?
-                withAnimation {
-                    toDo.isCompleted.toggle()
-                }
+                Spacer()
+                
+                Text(toDo.priority)
+                    .font(.caption)
+                    .priorityStyle(for: toDo)
+                
             }
         }
-        .navigationDestination(isPresented: $isActive) {
-            //            EditToDoView(toDo: $toDo)
-        }
+        .contentShape(Rectangle())
+        .strikethrough(toDo.isCompleted)
+//        .onTapGesture {
+//            //            isActive.toggle()
+//        }
+//        .onLongPressGesture {
+//            // Mark as completed?
+//            withAnimation {
+//                toDo.isCompleted.toggle()
+//            }
+//        }
     }
 }
 
