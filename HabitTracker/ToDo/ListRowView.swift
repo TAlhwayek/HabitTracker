@@ -9,11 +9,13 @@ import SwiftData
 import SwiftUI
 
 struct ListRowView: View {
+    @State private var isActive = false
     @Environment(\.modelContext) var modelContext_toDo
     
     var toDo: ToDo
     
     var body: some View {
+        
         VStack(alignment: .leading) {
             
             Text(toDo.title)
@@ -31,17 +33,20 @@ struct ListRowView: View {
                 
             }
         }
+        .sheet(isPresented: $isActive) {
+            EditToDoView(toDo: toDo)
+        }
         .contentShape(Rectangle())
         .strikethrough(toDo.isCompleted)
-//        .onTapGesture {
-//            //            isActive.toggle()
-//        }
-//        .onLongPressGesture {
-//            // Mark as completed?
-//            withAnimation {
-//                toDo.isCompleted.toggle()
-//            }
-//        }
+        .onTapGesture {
+            isActive = true
+        }
+        .onLongPressGesture(minimumDuration: 0.3) {
+            // Mark as completed?
+            withAnimation {
+                toDo.isCompleted.toggle()
+            }
+        }
     }
 }
 
